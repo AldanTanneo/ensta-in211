@@ -1,0 +1,46 @@
+.Movie-container {
+  text-decoration: none;
+  font-size: calc(10px + 0.75vmin);
+  color: inherit;
+
+  background-color: rgba(255, 255, 255, 20%);
+  transition: all 0.2s linear;
+
+  margin: 10px;
+  padding: 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Movie-container:hover {
+  background-color: rgba(255, 255, 255, 30%);
+  transform: scale(1.01);
+}
+
+.Movie-poster {
+  display: block;
+  margin: 0px;
+  border-radius: 10px 0px 0px 10px;
+  max-width: 40vmin;
+  width: auto;
+  height: 100%;
+}
+
+.Movie-details {
+  margin-left: 10px;
+  max-width: 300px;
+  text-align: left;
+  padding: 0.5em;
+}
+
+.Movie-details p,
+.Movie-details h4,
+.Movie-details h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.Movie-details > div {
+  padding: 0.5em 0;
+}
