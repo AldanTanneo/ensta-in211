@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import usersRouter from './routes/users.js';
+import moviesRouter from './routes/movies.js';
 import { routeNotFoundJsonHandler } from './services/routeNotFoundJsonHandler.js';
 import { jsonErrorHandler } from './services/jsonErrorHandler.js';
 import { appDataSource } from './datasource.js';
@@ -24,6 +25,7 @@ appDataSource
       res.send('Hello from Express!');
     });
     apiRouter.use('/users', usersRouter);
+    apiRouter.use('/movies', moviesRouter);
 
     // Register API router
     app.use('/api', apiRouter);
@@ -32,7 +34,7 @@ appDataSource
     app.use(routeNotFoundJsonHandler); // this middleware must be registered after all routes to handle 404 correctly
     app.use(jsonErrorHandler); // this error handler must be registered after all middleware to catch all errors
 
-    const port = parseInt(process.env.PORT || '8080');
+    const port = parseInt(process.env.PORT || '3001');
 
     app.listen(port, () => {
       console.log(`Server listening at http://localhost:${port}`);
