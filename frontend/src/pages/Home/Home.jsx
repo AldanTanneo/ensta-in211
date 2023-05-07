@@ -13,7 +13,11 @@ function useFetchMovies() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbApiKey}`
+        movieName === ''
+          ? `https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbApiKey}`
+          : `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
+              movieName
+            )}&api_key=${tmdbApiKey}`
       )
       .then((res) => {
         if (res.status == HttpStatusCode.Ok) {
@@ -23,26 +27,6 @@ function useFetchMovies() {
       .catch((err) => {
         console.log(`Could not complete request: ${err}`);
       });
-  }, []);
-
-  useEffect(() => {
-    if (movieName) {
-      console.log(movieName);
-      axios
-        .get(
-          `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(
-            movieName
-          )}&api_key=${tmdbApiKey}`
-        )
-        .then((res) => {
-          if (res.status == HttpStatusCode.Ok) {
-            setMovies(res.data.results);
-          }
-        })
-        .catch((err) => {
-          console.log(`Could not complete request: ${err}`);
-        });
-    }
   }, [movieName]);
 
   return { movies, movieName, setMovieName };

@@ -4,7 +4,7 @@
   color: inherit;
 
   background-color: rgba(255, 255, 255, 20%);
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-out;
 
   margin: 10px;
   padding: 0px;
@@ -15,7 +15,7 @@
 
 .Movie-container:hover {
   background-color: rgba(255, 255, 255, 30%);
-  transform: scale(1.01);
+  transform: scale(1.025);
 }
 
 .Movie-poster {
