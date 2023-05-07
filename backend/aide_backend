@@ -1,0 +1,11 @@
+pour retirer un film :
+requête post DELETE vide avec l'adresse http://localhost:3001/api/movies/<id movie>
+
+pour ajouter un film :
+requête post POST  sur http://localhost:3001/api/movies/new
+BODY : (exemple)
+{
+  "title": "Le Seigneur des Anneaux : La Communauté de l'Anneau",
+  "releasedate": "2001-12-19"
+}
+
