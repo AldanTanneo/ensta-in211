@@ -14,7 +14,7 @@ function useFetchMovies() {
 
   useEffect(() => {
     axios
-      .get(`${VITE_BACKEND_URL}/movies`)
+      .get(`${backendUrl}/movies`)
       .then((res) => {
         if (res.status === HttpStatusCode.Ok) {
           setFavourites(res.data.movie);
@@ -51,6 +51,15 @@ function Home() {
   const { movies, movieName, setMovieName, favourites, setFavourites } =
     useFetchMovies();
 
+  function updateFavourite(id, make_favourite) {
+    if (make_favourite && !favourites.find((elt) => elt.id == id)) {
+      setFavourites(favourites.filter((elt) => elt.id != id));
+    } else if (!make_favourite && favourites.find((elt) => elt.id == id)) {
+      favourites.push({ id });
+      setFavourites(favourites);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -72,7 +81,13 @@ function Home() {
             : '❌ No movies were found.'}
         </p>
         <div className="App-movieList">
-          {movies.map((m) => Movie(m, favourites.includes({ id: m.id })))}
+          {movies.map((m) =>
+            Movie(
+              m,
+              favourites.find((elt) => elt.id == m.id),
+              updateFavourite
+            )
+          )}
         </div>
       </main>
     </div>

@@ -1,5 +1,6 @@
 import './Movie.css';
 import { HiHeart, HiOutlineHeart } from 'react-icons/hi';
+import axios, { HttpStatusCode } from 'axios';
 
 const backendUrl = import.meta.env.VITE_BACKDEND_URL;
 
@@ -30,30 +31,33 @@ function movieRelease(movie) {
   }
 }
 
-function Movie(movie, is_favourite = false) {
+function Movie(movie, is_favourite, updateFavourite) {
   function click_favourite() {
     if (is_favourite) {
       axios
-        .delete(`${VITE_BACKDEND_URL}/movies/${movie.id}`)
+        .delete(`${backendUrl}/movies/${movie.id}`)
         .then((res) => {
           console.log('Succesfully removed movie from favourites', res);
-          is_favourite = !is_favourite;
+          is_favourite = false;
+          updateFavourite(movie.id, false);
         })
         .catch((err) =>
           console.error('Could not remove movie from favourites', err)
         );
     } else {
       axios
-        .post(`${VITE_BACKDEND_URL}/movies/new`, { id: movie.id })
+        .post(`${backendUrl}/movies/new`, { id: movie.id })
         .then((res) => {
           console.log('Succesfully added movie to favourites', res);
-          is_favourite = !is_favourite;
+          is_favourite = true;
+          updateFavourite(movie.id, true);
         })
         .catch((err) =>
           console.error('Could not add movie to favourites', err)
         );
     }
   }
+
   return (
     <div className="Movie-container" key={movie.id}>
       <a href={`https://tmdb.org/movie/${movie.id}`} target="_blank">
