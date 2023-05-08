@@ -6,8 +6,8 @@ const Movie = new typeorm.EntitySchema({
     id: {
       // Copy of the IMDB id
       primary: true,
-      type: String,
       unique: true,
+      type: Number,
     },
   },
 });
