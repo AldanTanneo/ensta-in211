@@ -3,25 +3,20 @@ import './About.css';
 function About() {
   return (
     <div>
-      <div className="about-section">
+      <header className="about-section">
         <div className="row">
-          <div className="column">
-            <img src="/film.png" alt="logo" width="20%" />
-          </div>
+          <img src="/film.png" alt="logo" className="header-column" />
 
-          <div className="column">
+          <div className="header-column">
             <h1>About Us</h1>
             <p>Who are we to judge</p>
           </div>
 
-          <div className="column">
-            <img src="/film.png" alt="logo" width="20%" />
-          </div>
+          <img src="/film.png" alt="logo" className="header-column" />
         </div>
-      </div>
+      </header>
 
-      <h2 align="center"> </h2>
-      <div className="row">
+      <main className="row">
         <div className="column">
           <div className="card">
             <img src="/nicki.jpg" alt="Shrek" width="100%" />
@@ -69,7 +64,7 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

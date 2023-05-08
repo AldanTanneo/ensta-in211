@@ -19,7 +19,6 @@ html {
 
 .column {
   float: left;
-  margin-bottom: 16px;
   padding: 0 8px;
 }
 
@@ -36,22 +35,50 @@ html {
 }
 
 .card {
+  background-color: rgba(255, 255, 255, 20%);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   margin: 8px;
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
 .card>img {
-  border-radius: 14px 14px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .about-section {
   padding: 30px;
   text-align: center;
-  background-color: #474e5d;
   color: white;
   text-size-adjust: auto;
-  border-radius: 7px;
+  margin: 0 16px;
+  margin-bottom: 20px;
+
+  min-height: 10vh;
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header-column {
+  flex-grow: 1;
+  align-self: center;
+}
+
+img.header-column {
+  max-height: 4em;
+  margin: 0px 5em;
+}
+
+.header-column p {
+  margin: 0px;
+}
+
+.header-column h1 {
+  margin: 0px;
 }
 
 .container {
@@ -75,16 +102,16 @@ html {
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 30%);
   text-align: center;
   cursor: pointer;
   width: 100%;
-  border-radius: 7px;
+  border-radius: 10px;
   transition: background-color 0.2s ease-out;
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: rgba(255, 255, 255, 30%);
 }
 
 @media screen and (max-width: 650px) {
