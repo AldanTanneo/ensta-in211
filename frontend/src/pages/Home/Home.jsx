@@ -1,8 +1,8 @@
 import './Home.css';
-import Movie from '../../components/Movie/Movie';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios, { HttpStatusCode } from 'axios';
 import { DebounceInput } from 'react-debounce-input';
+import Movie from '../../components/Movie/Movie';
 
 const tmdbApiKey = import.meta.env.VITE_TMDB_API_KEY;
 const backendUrl = import.meta.env.VITE_BACKDEND_URL;
