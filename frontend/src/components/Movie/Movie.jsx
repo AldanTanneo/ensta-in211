@@ -1,6 +1,7 @@
 import './Movie.css';
-import { HiHeart, HiOutlineHeart } from 'react-icons/hi';
+import { HiHeart } from 'react-icons/hi';
 import axios, { HttpStatusCode } from 'axios';
+import { useState } from 'react';
 
 const backendUrl = import.meta.env.VITE_BACKDEND_URL;
 
@@ -31,15 +32,14 @@ function movieRelease(movie) {
   }
 }
 
-function Movie(movie, is_favourite, updateFavourite) {
+function Movie({ movie, favourites, setFavourites }) {
   function click_favourite() {
-    if (is_favourite) {
+    if (favourites.find((elt) => elt.id == movie.id) !== undefined) {
       axios
         .delete(`${backendUrl}/movies/${movie.id}`)
         .then((res) => {
-          console.log('Succesfully removed movie from favourites', res);
-          is_favourite = false;
-          updateFavourite(movie.id, false);
+          console.log('Successfully removed movie from favourites', res);
+          setFavourites(favourites.filter((elt) => elt.id != movie.id));
         })
         .catch((err) =>
           console.error('Could not remove movie from favourites', err)
@@ -48,9 +48,8 @@ function Movie(movie, is_favourite, updateFavourite) {
       axios
         .post(`${backendUrl}/movies/new`, { id: movie.id })
         .then((res) => {
-          console.log('Succesfully added movie to favourites', res);
-          is_favourite = true;
-          updateFavourite(movie.id, true);
+          console.log('Successfully added movie to favourites', res);
+          setFavourites(favourites.concat({ id: movie.id }));
         })
         .catch((err) =>
           console.error('Could not add movie to favourites', err)
@@ -77,7 +76,13 @@ function Movie(movie, is_favourite, updateFavourite) {
         {movieRelease(movie)}
       </div>
       <div className="favourite-button" onClick={click_favourite}>
-        <div className={is_favourite ? 'button-red' : 'button-white'}>
+        <div
+          className={
+            favourites.find((elt) => elt.id == movie.id) !== undefined
+              ? 'button-red'
+              : 'button-white'
+          }
+        >
           <HiHeart className="favourite-icon" />
         </div>
       </div>
