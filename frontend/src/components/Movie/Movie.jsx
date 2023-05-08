@@ -76,15 +76,14 @@ function Movie({ movie, favourites, setFavourites }) {
         {movieRelease(movie)}
       </div>
       <div className="favourite-button" onClick={click_favourite}>
-        <div
-          className={
+        <HiHeart
+          className="favourite-icon"
+          color={
             favourites.find((elt) => elt.id == movie.id) !== undefined
-              ? 'button-red'
-              : 'button-white'
+              ? '#db3b80'
+              : '#ffffff'
           }
-        >
-          <HiHeart className="favourite-icon" />
-        </div>
+        />
       </div>
     </div>
   );

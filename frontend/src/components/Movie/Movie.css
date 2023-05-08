@@ -15,7 +15,7 @@
 
 .Movie-container:hover {
   background-color: rgba(255, 255, 255, 30%);
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
 }
 
 .Movie-poster {
@@ -72,24 +72,11 @@ a {
 
 .favourite-icon {
   scale: 200%;
+
+  transition: filter 0.1s ease-out;
+  filter: drop-shadow(0 0 0 black);
 }
 
-.button-white {
-  color: white;
-
-  transition: all 0.1s ease-out;
-}
-
-.button-white:hover {
-  color: #db3b80;
-}
-
-.button-red {
-  color: #db3b80;
-
-  transition: all 0.1s ease-out;
-}
-
-.button-red:hover {
-  color: white;
+.favourite-icon:hover {
+  filter: drop-shadow(2px 2px 2px black);
 }
