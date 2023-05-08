@@ -20,8 +20,7 @@ router.post('/new', function (req, res) {
 
   const movieRepository = appDataSource.getRepository(Movie);
   const newMovie = movieRepository.create({
-    title: req.body.title,
-    releasedate: req.body.releasedate,
+    id: req.body.id,
   });
 
   movieRepository
