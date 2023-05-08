@@ -5,7 +5,7 @@ import axios, { HttpStatusCode } from 'axios';
 import { DebounceInput } from 'react-debounce-input';
 
 const tmdbApiKey = import.meta.env.VITE_TMDB_API_KEY;
-const backendUrl = import.meta.env.VITE_BACKDEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function useFetchMovies() {
   const [movies, setMovies] = useState([]);

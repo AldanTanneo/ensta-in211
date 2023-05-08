@@ -3,7 +3,7 @@ import { HiHeart } from 'react-icons/hi';
 import axios, { HttpStatusCode } from 'axios';
 import { useState } from 'react';
 
-const backendUrl = import.meta.env.VITE_BACKDEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const dateFormatter = Intl.DateTimeFormat('en-US', {
   year: 'numeric',

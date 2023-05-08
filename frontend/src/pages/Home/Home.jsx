@@ -5,7 +5,7 @@ import { DebounceInput } from 'react-debounce-input';
 import Movie from '../../components/Movie/Movie';
 
 const tmdbApiKey = import.meta.env.VITE_TMDB_API_KEY;
-const backendUrl = import.meta.env.VITE_BACKDEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function useFetchMovies() {
   const [movieName, setMovieName] = useState('');
