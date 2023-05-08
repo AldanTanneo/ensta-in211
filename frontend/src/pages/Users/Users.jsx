@@ -5,7 +5,7 @@ import UsersTable from '../../components/UsersTable/UsersTable';
 function Users() {
   return (
     <div className="Users-container">
-      <h1>This page displays the users</h1>
+      <h1>Users</h1>
       <AddUserForm />
       <UsersTable />
     </div>

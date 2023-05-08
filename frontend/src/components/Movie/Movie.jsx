@@ -32,13 +32,22 @@ function movieRelease(movie) {
   }
 }
 
+function movieTagline(movie) {
+  if (movie.tagline) {
+    return (
+      <div>
+        <p>{movie.tagline}</p>
+      </div>
+    );
+  }
+}
+
 function Movie({ movie, favourites, setFavourites }) {
   function click_favourite() {
     if (favourites.find((elt) => elt.id == movie.id) !== undefined) {
       axios
         .delete(`${backendUrl}/movies/${movie.id}`)
-        .then((res) => {
-          console.log('Successfully removed movie from favourites', res);
+        .then((_) => {
           setFavourites(favourites.filter((elt) => elt.id != movie.id));
         })
         .catch((err) =>
@@ -47,8 +56,7 @@ function Movie({ movie, favourites, setFavourites }) {
     } else {
       axios
         .post(`${backendUrl}/movies/new`, { id: movie.id })
-        .then((res) => {
-          console.log('Successfully added movie to favourites', res);
+        .then((_) => {
           setFavourites(favourites.concat({ id: movie.id }));
         })
         .catch((err) =>
@@ -74,6 +82,7 @@ function Movie({ movie, favourites, setFavourites }) {
           ) : null}
         </div>
         {movieRelease(movie)}
+        {movieTagline(movie)}
       </div>
       <div className="favourite-button" onClick={click_favourite}>
         <HiHeart

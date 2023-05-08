@@ -25,7 +25,7 @@ function About() {
               <p className="title">CEO & Founder</p>
               <p>Broke people should never laugh</p>
               <p>
-                <a class="button" href="mailto:nickiminaj@anaconda.com">
+                <a className="button" href="mailto:nickiminaj@anaconda.com">
                   Contact
                 </a>
               </p>
@@ -41,7 +41,7 @@ function About() {
               <p className="title">Art Director</p>
               <p>Patrick that's a pickle</p>
               <p>
-                <a class="button" href="mailto:spongebob@pineapple.sea">
+                <a className="button" href="mailto:spongebob@pineapple.sea">
                   Contact
                 </a>
               </p>
@@ -57,7 +57,7 @@ function About() {
               <p className="title">Designer</p>
               <p>Clap if you care ...</p>
               <p>
-                <a class="button" href="mailto:wendy.williams@gmail.com">
+                <a className="button" href="mailto:wendy.williams@gmail.com">
                   Contact
                 </a>
               </p>
