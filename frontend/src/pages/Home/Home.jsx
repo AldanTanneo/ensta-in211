@@ -5,10 +5,25 @@ import axios, { HttpStatusCode } from 'axios';
 import { DebounceInput } from 'react-debounce-input';
 
 const tmdbApiKey = import.meta.env.VITE_TMDB_API_KEY;
+const backendUrl = import.meta.env.VITE_BACKDEND_URL;
 
 function useFetchMovies() {
   const [movieName, setMovieName] = useState('');
   const [movies, setMovies] = useState([]);
+  const [favourites, setFavourites] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${VITE_BACKEND_URL}/movies`)
+      .then((res) => {
+        if (res.status === HttpStatusCode.Ok) {
+          setFavourites(res.data.movie);
+        } else {
+          console.warn('Invalid response', res);
+        }
+      })
+      .catch((err) => console.log(`Could not fetch favourite list: ${err}`));
+  }, []);
 
   useEffect(() => {
     axios
@@ -29,11 +44,12 @@ function useFetchMovies() {
       });
   }, [movieName]);
 
-  return { movies, movieName, setMovieName };
+  return { movies, movieName, setMovieName, favourites, setFavourites };
 }
 
 function Home() {
-  const { movies, movieName, setMovieName } = useFetchMovies();
+  const { movies, movieName, setMovieName, favourites, setFavourites } =
+    useFetchMovies();
 
   return (
     <div className="App">
@@ -55,7 +71,9 @@ function Home() {
             ? `Displaying ${movies.length} movies`
             : '❌ No movies were found.'}
         </p>
-        <div className="App-movieList">{movies.map(Movie)}</div>
+        <div className="App-movieList">
+          {movies.map((m) => Movie(m, favourites.includes({ id: m.id })))}
+        </div>
       </main>
     </div>
   );

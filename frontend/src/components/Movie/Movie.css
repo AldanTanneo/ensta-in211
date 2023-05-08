@@ -15,7 +15,7 @@
 
 .Movie-container:hover {
   background-color: rgba(255, 255, 255, 30%);
-  transform: scale(1.025);
+  transform: scale(1.02);
 }
 
 .Movie-poster {
@@ -43,4 +43,53 @@
 
 .Movie-details > div {
   padding: 0.5em 0;
+}
+
+.Movie-link {
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.Movie-link:hover {
+  text-decoration: underline;
+}
+
+.favourite-button {
+  align-self: flex-end;
+  float: right;
+  margin-left: auto;
+  margin-right: 1em;
+  margin-bottom: 0.75em;
+  z-index: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.favourite-icon {
+  scale: 200%;
+}
+
+.button-white {
+  color: white;
+
+  transition: all 0.1s ease-out;
+}
+
+.button-white:hover {
+  color: #db3b80;
+}
+
+.button-red {
+  color: #db3b80;
+
+  transition: all 0.1s ease-out;
+}
+
+.button-red:hover {
+  color: white;
 }
