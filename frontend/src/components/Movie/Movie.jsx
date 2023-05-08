@@ -1,7 +1,6 @@
 import './Movie.css';
 import { HiHeart } from 'react-icons/hi';
-import axios, { HttpStatusCode } from 'axios';
-import { useState } from 'react';
+import axios from 'axios';
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -16,6 +15,7 @@ function moviePoster(movie) {
       <img
         className="Movie-poster"
         src={'https://image.tmdb.org/t/p/w185' + movie.poster_path}
+        alt={`Poster for the movie "${movie.title}"`}
       ></img>
     );
   }
@@ -67,12 +67,20 @@ function Movie({ movie, favourites, setFavourites }) {
 
   return (
     <div className="Movie-container" key={movie.id}>
-      <a href={`https://tmdb.org/movie/${movie.id}`} target="_blank">
+      <a
+        href={`https://tmdb.org/movie/${movie.id}`}
+        target="_blank"
+        rel="noreferrer"
+      >
         <div>{moviePoster(movie)}</div>
       </a>
       <div className="Movie-details">
         <div>
-          <a href={`https://tmdb.org/movie/${movie.id}`} target="_blank">
+          <a
+            href={`https://tmdb.org/movie/${movie.id}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             <h3 className="Movie-link">{movie.title}</h3>
           </a>
           {movie.title !== movie.original_title ? (

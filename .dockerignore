@@ -5,6 +5,7 @@ backend\**\node_modules
 # local env files
 backend\**\.env
 backend\**\public
+backend\aide_backend.txt
 
 # flyctl launch added from frontend\.gitignore
 # Logs
