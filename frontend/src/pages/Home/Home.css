@@ -50,9 +50,9 @@
 }
 
 .App-searchbar {
-  height: 2em;
   min-width: 50vw;
   border: none;
   padding: 0.5em 2em;
   border-radius: 7px;
+  font-size: calc(11px + 1vmin);
 }
