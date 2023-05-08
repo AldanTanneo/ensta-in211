@@ -4,11 +4,23 @@ function About() {
   return (
     <div>
       <div className="about-section">
-        <h1>About Us Page</h1>
-        <p>Who are we to judge</p>
+        <div className="row">
+          <div className="column">
+            <img src="/film.png" alt="logo" width="20%" />
+          </div>
+
+          <div className="column">
+            <h1>About Us</h1>
+            <p>Who are we to judge</p>
+          </div>
+
+          <div className="column">
+            <img src="/film.png" alt="logo" width="20%" />
+          </div>
+        </div>
       </div>
 
-      <h2 align="center">Our Team</h2>
+      <h2 align="center"> </h2>
       <div className="row">
         <div className="column">
           <div className="card">
@@ -17,7 +29,6 @@ function About() {
               <h2>Nicki Minaj</h2>
               <p className="title">CEO & Founder</p>
               <p>Broke people should never laugh</p>
-              <p>nickiminaj@anaconda.com</p>
               <p>
                 <a class="button" href="mailto:nickiminaj@anaconda.com">
                   Contact
@@ -34,7 +45,6 @@ function About() {
               <h2>Spongebob Squartepants</h2>
               <p className="title">Art Director</p>
               <p>Patrick that's a pickle</p>
-              <p>spongebob@pineapple.sea</p>
               <p>
                 <a class="button" href="mailto:spongebob@pineapple.sea">
                   Contact
@@ -51,7 +61,6 @@ function About() {
               <h2>Wendy Williams</h2>
               <p className="title">Designer</p>
               <p>Clap if you care ...</p>
-              <p>wendy.williams@gmail.com</p>
               <p>
                 <a class="button" href="mailto:wendy.williams@gmail.com">
                   Contact
